@@ -1,4 +1,4 @@
 # Native base example  
 
-##App Screenshot
-(Screenshot)[./screenshot.png]
+## App Screenshot  
+![Screenshot](screenshot.png)
