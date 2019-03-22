@@ -1,40 +1,52 @@
 import React, {Component} from 'react'
 import {
-  Container, Header, Content, Button, Text, Form, Input, Item, Label,
-  Left, Right, Body, Title, Icon
+  Header, Container, StyleProvider, Left, Text,
+  Body, Title, Tab, Tabs, Icon, TabHeading, Button,
+  Right
 } from 'native-base'
+import {StyleSheet} from 'react-native'
+import CustomVariables from './native-base-theme/variables'
+import getTheme from './native-base-theme/components'
+
 
 export default class App extends Component{
   render(){
-    return (
-      <Container>
-        <Header androidStatusBarColor='#054E47'
-          style={{backgroundColor: '#006257'}} >
-          <Left>
-            <Title>WhatsApp</Title>
-          </Left>
-          <Right>
-            <Button transparent>
-              <Icon name='search' style={{fontSize: 20}} />
-            </Button>
-            <Button transparent>
-              <Icon name='md-more' />
-            </Button>
-          </Right>
-        </Header>
-        <Content>
-          <Form >
-            <Item floatingLabel>
-              <Label> Full Name </Label>
-              <Input autoFocus />
-            </Item>
-            <Item floatingLabel>
-              <Label> Password </Label>
-              <Input />
-            </Item>
-          </Form>
-        </Content>
-      </Container>
+    return(
+      <StyleProvider style={getTheme(CustomVariables)}>
+        <Container>
+          <Header hasTabs androidStatusBarColor='#054E47'>
+            <Left>
+              <Title>WhatsApp</Title>
+            </Left>
+            <Right>
+              <Button transparent>
+                <Icon name='search' style={{fontSize: 20}} />
+              </Button>
+              <Button transparent>
+                <Icon name='md-more' />
+              </Button>
+            </Right>
+          </Header>
+          <Tabs initialPage={1}>
+            <Tab heading={
+              <TabHeading>
+                <Icon name='camera' />
+              </TabHeading>
+            }>
+              <Text>Take Pics</Text>
+            </Tab>
+            <Tab heading='CHATS'>
+              <Text>Chat List</Text>
+            </Tab>
+            <Tab heading='STATUS'>
+              <Text>Status</Text>
+            </Tab>
+            <Tab heading='CALLS'>
+              <Text>Call me</Text>
+            </Tab>
+          </Tabs>
+        </Container>
+      </StyleProvider>
     )
   }
 }
