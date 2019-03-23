@@ -46,6 +46,18 @@ export default class ChatList extends Component{
   }
 
   render(){
+    //Here we're using a FlatList to render our list of chats, it's a react native component
+    //that makes it easier and better to deal with lists.
+    //it has a 'data' prop and we assign to it the array that we want it to loop through.
+    //we could have used map, but this is much simpler
+    //to 'renderItem' prop we pass the component that knows how to render each item in our list
+    //in this case it's the Chat component
+    //the 'keyExtractor' prop works like the 'key' prop. we give it a function that returns
+    //a unique identifier.
+
+    //for more: https://facebook.github.io/react-native/docs/flatlist.html
+
+
     return (
       <FlatList
         data={this.state.chats}

@@ -17,6 +17,7 @@ export default class App extends Component{
   }
 
   componentDidMount(){
+    
     setTimeout(() => this.setState({ page: 1, scrollWithoutAnimation: false }), 0.1);
   }
 
