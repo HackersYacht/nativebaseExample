@@ -2,19 +2,31 @@ import React, {Component} from 'react'
 import {
   Header, Container, StyleProvider, Left, Text,
   Body, Title, Tab, Tabs, Icon, TabHeading, Button,
-  Right
+  Right, Content
 } from 'native-base'
-import {StyleSheet} from 'react-native'
+import {StyleSheet, View} from 'react-native'
 import CustomVariables from './native-base-theme/variables'
 import getTheme from './native-base-theme/components'
 
+import ChatList from './components/chatList'
 
 export default class App extends Component{
+  state = {
+    page: 0,
+    scrollWithoutAnimation: true
+  }
+
+  componentDidMount(){
+    setTimeout(() => this.setState({ page: 1, scrollWithoutAnimation: false }), 0.1);
+  }
+
   render(){
+    let {page, scrollWithoutAnimation} = this.state
+
     return(
       <StyleProvider style={getTheme(CustomVariables)}>
         <Container>
-          <Header hasTabs androidStatusBarColor='#054E47'>
+          <Header hasTabs noShadow={true}>
             <Left>
               <Title>WhatsApp</Title>
             </Left>
@@ -27,7 +39,8 @@ export default class App extends Component{
               </Button>
             </Right>
           </Header>
-          <Tabs initialPage={1}>
+
+          <Tabs page={page} scrollWithoutAnimation={scrollWithoutAnimation}>
             <Tab heading={
               <TabHeading>
                 <Icon name='camera' />
@@ -36,7 +49,7 @@ export default class App extends Component{
               <Text>Take Pics</Text>
             </Tab>
             <Tab heading='CHATS'>
-              <Text>Chat List</Text>
+              <ChatList />
             </Tab>
             <Tab heading='STATUS'>
               <Text>Status</Text>
@@ -45,6 +58,7 @@ export default class App extends Component{
               <Text>Call me</Text>
             </Tab>
           </Tabs>
+
         </Container>
       </StyleProvider>
     )
