@@ -20,5 +20,7 @@
 
 
 ### App Screenshots  
-<img src='https://github.com/HackersYacht/nativebaseExample/blob/whatsappThemed/screenshot.jpg' width='300'>
-<img src='https://github.com/HackersYacht/nativebaseExample/blob/whatsappClone/screenshot.png' width='300'>
+<div>
+  <img src='https://github.com/HackersYacht/nativebaseExample/blob/whatsappThemed/screenshot.jpg' width='300'>
+  <img src='https://github.com/HackersYacht/nativebaseExample/blob/whatsappClone/screenshot.png' width='300'>
+</div>
